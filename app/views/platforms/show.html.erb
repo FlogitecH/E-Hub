@@ -1,9 +1,27 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
+  <b>Games for:</b>
   <%= @platform.name %>
+  <%= @platform.games.count %>
+
+  <br />
+  <table>
+    <tr>	
+      <th>Game</th>
+    </tr>
+  <% @platform.games.each do |game| %>
+    <tr>
+	  <td><%= link_to game.title.name, game%></td>
+    </tr>	
+  <% end %>
+  </table>
 </p>
 
+<br />
+
+<%= link_to 'New Game', new_game_path( :platform => @platform)%>
+
+<br />
 
 <%= link_to 'Back', platforms_path %>

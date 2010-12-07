@@ -4,12 +4,16 @@
   <tr>
     <th>Name</th>
     <th></th>
+    <th></th>
+    <th></th>
   </tr>
 
 <% @platforms.each do |platform| %>
   <tr>
     <td><%= platform.name %></td>
-    <td><%= link_to 'Destroy', platform, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Games', platform%></td>
+	<td><%= link_to 'New Game', new_game_path%></td>
+	<td><%= link_to 'Destroy', platform, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
@@ -17,3 +21,5 @@
 <br />
 
 <%= link_to 'New Platform', new_platform_path %>
+<br />
+<%= link_to 'Main', home_index_path %>

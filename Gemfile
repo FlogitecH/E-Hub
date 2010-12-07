@@ -1,5 +1,7 @@
 source 'http://rubygems.org'
 
+gem 'simple_form'
+
 gem 'rails', '3.0.3'
 
 # Bundle edge Rails instead:
