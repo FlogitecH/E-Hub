@@ -24,12 +24,26 @@ class GamesController < ApplicationController
     # GET /games/new
     # GET /games/new.xml
     def new
-      @game = Game.new
+      puts('games->new') 
+      puts(params.inspect)
+      if params.has_key?(:platform)
+        puts('ja')
+        @games = Game.all
+        render'games/index'
+      else
+        @game = Game.new
 
-      respond_to do |format|
-        format.html # new.html.erb
-        format.xml  { render :xml => @game }
+        respond_to do |format|
+          format.html # new.html.erb
+          format.xml  { render :xml => @game }
+        end
       end
+    end
+    
+    # GET /games/new_title
+    #GET games/new_title.xml
+    def new_game_title
+      puts('game->new_title')
     end
     
     # GET /games/1/edit
@@ -40,6 +54,7 @@ class GamesController < ApplicationController
     # Game /game
     # Game /games.xml
     def create
+      puts('games->create')
       @game = Game.new(params[:game])
 
       respond_to do |format|

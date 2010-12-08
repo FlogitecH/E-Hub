@@ -1,5 +1,15 @@
 EHub::Application.routes.draw do
-  resources :platforms, :titles, :games
+
+  resources :platforms do
+    resources :games
+  end
+  
+  resources :titles do
+    resources :games
+  end
+  
+  resources :games
+  
 
   get "home/index"
 
