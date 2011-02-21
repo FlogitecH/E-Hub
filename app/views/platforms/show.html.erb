@@ -1,3 +1,6 @@
+<%= image_tag @platform.image.url %>
+<br />
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -5,6 +8,8 @@
   <%= @platform.name %>
   <%= @platform.games.count %>
 
+  <br />
+  <%= @platform.description %>
   <br />
   <table>
     <tr>	
@@ -20,7 +25,7 @@
 
 <br />
 
-<%= link_to 'New Game', new_game_path(:platform => @platform) %>
+<%= link_to 'New Game', new_title_path(:platform => @platform) %>
 
 <br />
 

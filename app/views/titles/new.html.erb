@@ -1,5 +1,11 @@
-<h1>New title</h1>
+<% if @platform != nil %>
+  <h1>New title for <%= @platform.name %> </h1>
+  <%= render 'form_title' %>
+<% else %>
 
-<%= render 'form' %>
+  <h1>New title</h1>
+
+  <%= render 'form' %>
+<% end %>
 
 <%= link_to 'Back', titles_path %>

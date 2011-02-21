@@ -8,6 +8,8 @@
   </tr>
 
 <% @games.each do |game| %>
+<% puts(game.id) %>
+<% puts(game.title.name) %>
   <tr>
     <td><%= game.title.name %></td>
     <td><%= game.platform.name%>

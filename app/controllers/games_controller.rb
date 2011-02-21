@@ -28,8 +28,8 @@ class GamesController < ApplicationController
       puts(params.inspect)
       if params.has_key?(:platform)
         puts('ja')
-        @games = Game.all
-        render'games/index'
+        @game = Game.new
+        render 'games/new_game_title', :platform => params[:platform]
       else
         @game = Game.new
 

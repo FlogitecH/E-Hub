@@ -80,4 +80,8 @@ class PlatformsController < ApplicationController
         format.xml  { head :ok }
       end
     end
+    
+    def search
+      @platforms = Platform.search params[:q]
+    end
 end

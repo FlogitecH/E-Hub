@@ -1,10 +1,16 @@
 EHub::Application.routes.draw do
 
   resources :platforms do
+  collection do
+	    get 'search'
+	  end
     resources :games
   end
   
   resources :titles do
+    collection do
+	    get 'search'
+	  end
     resources :games
   end
   
@@ -12,6 +18,8 @@ EHub::Application.routes.draw do
   
 
   get "home/index"
+  
+  match "search" => "search"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

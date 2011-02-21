@@ -25,7 +25,12 @@ class TitlesController < ApplicationController
     # GET /titles/new.xml
     def new
       @title = Title.new
-
+     
+      if (params.has_key?(:platform))
+        @platform = Platform.find(params[:platform])
+        @game = Game.new
+      end
+      
       respond_to do |format|
         format.html # new.html.erb
         format.xml  { render :xml => @title }
@@ -41,6 +46,9 @@ class TitlesController < ApplicationController
     # Title /titles.xml
     def create
       @title = Title.new(params[:title])
+      @platform = Platform.find(params[:platform])
+      puts(@platform)
+      @game = @title.games.build(:platform => @platform)
 
       respond_to do |format|
         if @title.save
@@ -52,6 +60,7 @@ class TitlesController < ApplicationController
         end
       end
     end
+    
     
     # PUT /titles/1
     # PUT /titles/1.xml
